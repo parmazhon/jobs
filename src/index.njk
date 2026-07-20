@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+title: Creative strategy jobs
+eyebrow: A focused industry job board
+intro: Find thoughtful roles at the intersection of culture, creativity, research, and business.
+---
+<section class="hero">
+  <p class="eyebrow">{{ eyebrow }}</p>
+  <h1>{{ title }}</h1>
+  <p class="intro">{{ intro }}</p>
+</section>
+
+<section class="jobs" id="jobs" aria-labelledby="jobs-title">
+  <div class="section-heading">
+    <h2 id="jobs-title">Latest opportunities</h2>
+    <p>{{ collections.jobs | length }} open roles</p>
+  </div>
+
+  <div class="job-list">
+    {% for job in collections.jobs %}
+      <article class="job-card">
+        <div>
+          <p class="company">{{ job.data.company }}</p>
+          <h3><a href="{{ job.url }}">{{ job.data.title }}</a></h3>
+          <p>{{ job.data.location }} · {{ job.data.workplace }} · {{ job.data.employment_type }}</p>
+        </div>
+        <div class="job-meta">
+          {% if job.data.salary %}<p>{{ job.data.salary }}</p>{% endif %}
+          <time datetime="{{ job.data.posted }}">{{ job.data.posted | readableDate }}</time>
+        </div>
+      </article>
+    {% else %}
+      <p>No roles have been published yet.</p>
+    {% endfor %}
+  </div>
+</section>

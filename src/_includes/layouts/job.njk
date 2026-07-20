@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+---
+<article class="job-detail">
+  <a class="back-link" href="/#jobs">← All jobs</a>
+  <header>
+    <p class="company">{{ company }}</p>
+    <h1>{{ title }}</h1>
+    <p>{{ location }} · {{ workplace }} · {{ employment_type }}</p>
+    {% if salary %}<p>{{ salary }}</p>{% endif %}
+  </header>
+  <div class="prose">{{ content | safe }}</div>
+  <a class="button" href="{{ apply_url }}">Apply for this role</a>
+</article>

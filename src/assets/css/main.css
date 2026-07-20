@@ -1,0 +1,46 @@
+:root {
+  --background: #f5f3ee;
+  --surface: #ffffff;
+  --text: #171717;
+  --muted: #67645e;
+  --line: #d8d4ca;
+  --accent: #2f5b45;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--background);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; line-height: 1.5; }
+a { color: inherit; }
+.skip-link { position: absolute; left: -999px; }
+.skip-link:focus { left: 1rem; top: 1rem; background: white; padding: .5rem; }
+.site-header, .site-footer, main { width: min(1120px, calc(100% - 2rem)); margin-inline: auto; }
+.site-header, .site-footer { display: flex; justify-content: space-between; gap: 1rem; padding-block: 1.5rem; }
+.site-header { border-bottom: 1px solid var(--line); }
+.site-header nav { display: flex; gap: 1.5rem; }
+.site-name { font-weight: 700; text-decoration: none; }
+.hero { padding: 8rem 0 6rem; max-width: 850px; }
+.eyebrow, .company { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .75rem; }
+h1 { margin: .5rem 0 1.5rem; font-size: clamp(3.25rem, 9vw, 7.5rem); line-height: .9; letter-spacing: -.06em; }
+.intro { max-width: 680px; color: var(--muted); font-size: clamp(1.2rem, 2.5vw, 1.75rem); }
+.jobs { padding-bottom: 7rem; }
+.section-heading, .job-card { display: flex; justify-content: space-between; gap: 2rem; }
+.section-heading { align-items: baseline; border-bottom: 1px solid var(--text); }
+.job-card { padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+.job-card h3 { margin: .2rem 0; font-size: 1.5rem; }
+.job-card p, .job-card time { margin: .2rem 0; color: var(--muted); }
+.job-meta { text-align: right; min-width: 10rem; }
+.job-detail { max-width: 780px; padding: 4rem 0 8rem; }
+.job-detail h1 { font-size: clamp(3rem, 7vw, 6rem); }
+.job-detail header { margin: 3rem 0; }
+.prose { font-size: 1.1rem; margin: 3rem 0; }
+.button { display: inline-block; padding: .9rem 1.25rem; background: var(--text); color: white; text-decoration: none; }
+.site-footer { border-top: 1px solid var(--line); color: var(--muted); }
+
+@media (max-width: 640px) {
+  .site-header, .site-footer, .section-heading, .job-card { align-items: flex-start; flex-direction: column; }
+  .site-header nav { width: 100%; justify-content: space-between; }
+  .hero { padding: 5rem 0 4rem; }
+  .job-meta { text-align: left; }
+}

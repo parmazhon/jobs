@@ -1,0 +1,55 @@
+media:
+  input: src/assets/uploads
+  output: /assets/uploads
+
+content:
+  - name: jobs
+    label: Jobs
+    type: collection
+    path: src/jobs
+    view:
+      fields: [title, company, location, employment_type, posted, draft]
+      primary: title
+      sort: [posted, title]
+      default:
+        sort: posted
+        order: desc
+    fields:
+      - { name: title, label: Job title, type: string, required: true }
+      - { name: company, label: Company, type: string, required: true }
+      - { name: location, label: Location, type: string, required: true }
+      - name: workplace
+        label: Workplace
+        type: select
+        options:
+          values: [Remote, Hybrid, On-site]
+      - name: employment_type
+        label: Employment type
+        type: select
+        options:
+          values: [Full-time, Part-time, Contract, Freelance, Internship]
+      - { name: salary, label: Salary, type: string }
+      - { name: apply_url, label: Application URL, type: string, required: true }
+      - { name: posted, label: Posted, type: date, required: true }
+      - { name: featured, label: Featured, type: boolean, default: false }
+      - { name: draft, label: Draft, type: boolean, default: false }
+      - { name: body, label: Description, type: rich-text }
+
+  - name: settings
+    label: Site settings
+    type: file
+    path: src/_data/site.json
+    fields:
+      - { name: name, label: Site name, type: string }
+      - { name: description, label: Description, type: text }
+      - { name: email, label: Contact email, type: string }
+
+  - name: home
+    label: Homepage
+    type: file
+    path: src/index.njk
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: eyebrow, label: Eyebrow, type: string }
+      - { name: intro, label: Intro, type: text }
+      - { name: body, label: Content, type: code, options: { language: html } }
