@@ -50,6 +50,5 @@ content:
     path: src/index.njk
     fields:
       - { name: title, label: Page title, type: string }
-      - { name: eyebrow, label: Eyebrow, type: string }
       - { name: intro, label: Intro, type: text }
-      - { name: body, label: Content, type: code, options: { language: html } }
+      - { name: body, label: Content, type: code, options: { format: html } }

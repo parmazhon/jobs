@@ -1,33 +1,45 @@
 ---
 layout: layouts/base.njk
-title: Creative strategy jobs
-eyebrow: A focused industry job board
-intro: Find thoughtful roles at the intersection of culture, creativity, research, and business.
+title: Find Creative Strategy Jobs at the best brands
+intro: Discover the best jobs from the best agencies and brands in DTC, Ecommerce, and more.
 ---
 <section class="hero">
-  <p class="eyebrow">{{ eyebrow }}</p>
   <h1>{{ title }}</h1>
   <p class="intro">{{ intro }}</p>
+  <div class="hero-actions">
+    <a class="button button--dark" href="#jobs">Browse jobs</a>
+    <a class="button button--sand" href="mailto:{{ site.email }}">Post a job</a>
+  </div>
 </section>
+
+<div class="feature-panel" aria-hidden="true"></div>
 
 <section class="jobs" id="jobs" aria-labelledby="jobs-title">
   <div class="section-heading">
-    <h2 id="jobs-title">Latest opportunities</h2>
-    <p>{{ collections.jobs | length }} open roles</p>
+    <h2 id="jobs-title">Open positions</h2>
   </div>
 
   <div class="job-list">
     {% for job in collections.jobs %}
       <article class="job-card">
-        <div>
-          <p class="company">{{ job.data.company }}</p>
-          <h3><a href="{{ job.url }}">{{ job.data.title }}</a></h3>
-          <p>{{ job.data.location }} · {{ job.data.workplace }} · {{ job.data.employment_type }}</p>
+        <div class="job-content">
+          <div class="job-overview">
+            <h3><a href="{{ job.url }}">{{ job.data.title }}</a></h3>
+            <ul class="job-facts" aria-label="Job details">
+              <li><img class="fact-icon" src="/assets/icons/map-pin.svg" alt="">{{ job.data.workplace }}</li>
+              <li><img class="fact-icon" src="/assets/icons/briefcase.svg" alt="">{{ job.data.employment_type }}</li>
+              {% if job.data.salary %}<li><img class="fact-icon" src="/assets/icons/dollar-sign.svg" alt="">{{ job.data.salary }}</li>{% endif %}
+            </ul>
+          </div>
+          <div class="company-row">
+            <span class="company-mark company-mark--{{ loop.index }}" aria-hidden="true"></span>
+            <div>
+              <p class="company">{{ job.data.company }}</p>
+              <p class="company-detail">Creative company in {{ job.data.location }}</p>
+            </div>
+          </div>
         </div>
-        <div class="job-meta">
-          {% if job.data.salary %}<p>{{ job.data.salary }}</p>{% endif %}
-          <time datetime="{{ job.data.posted }}">{{ job.data.posted | readableDate }}</time>
-        </div>
+        <a class="learn-more" href="{{ job.url }}">Learn more <img src="/assets/icons/arrow-right.svg" alt=""></a>
       </article>
     {% else %}
       <p>No roles have been published yet.</p>

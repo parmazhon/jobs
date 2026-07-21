@@ -6,9 +6,9 @@ layout: layouts/base.njk
   <header>
     <p class="company">{{ company }}</p>
     <h1>{{ title }}</h1>
-    <p>{{ location }} · {{ workplace }} · {{ employment_type }}</p>
+    <p class="job-detail-meta">{{ location }} · {{ workplace }} · {{ employment_type }}</p>
     {% if salary %}<p>{{ salary }}</p>{% endif %}
   </header>
   <div class="prose">{{ content | safe }}</div>
-  <a class="button" href="{{ apply_url }}">Apply for this role</a>
+  <a class="button button--dark" href="{{ apply_url }}">Apply for this role</a>
 </article>
