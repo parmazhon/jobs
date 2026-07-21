@@ -37,6 +37,10 @@ export default function (eleventyConfig) {
     (jobs || []).filter((job) => job.data.brand === slug)
   );
 
+  eleventyConfig.addFilter("marqueeBrands", (brands) =>
+    (brands || []).filter((brand) => brand.data.show_in_marquee && brand.data.logo)
+  );
+
   eleventyConfig.addFilter("readableDate", (value) =>
     new Intl.DateTimeFormat("en-US", {
       month: "short",

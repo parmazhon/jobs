@@ -4,7 +4,7 @@ content:
     type: collection
     path: src/brands
     view:
-      fields: [name, industry, headquarters, careers_url, draft]
+      fields: [name, industry, headquarters, show_in_marquee, careers_url, draft]
       primary: name
       sort: [name]
     fields:
@@ -13,6 +13,11 @@ content:
         label: Logo URL
         type: string
         description: Upload the logo to Cloudflare R2 and paste its public URL here.
+      - name: show_in_marquee
+        label: Show in homepage marquee
+        type: boolean
+        default: false
+        description: Include this brand's logo in the moving strip below the homepage hero.
       - name: industry
         label: Industry
         type: select

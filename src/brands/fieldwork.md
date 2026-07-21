@@ -1,6 +1,7 @@
 ---
 name: Fieldwork
 logo: /assets/uploads/fieldwork.svg
+show_in_marquee: true
 headquarters: Remote, US
 website: https://example.com
 description: A strategy and innovation company.
