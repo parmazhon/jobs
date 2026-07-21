@@ -1,4 +1,18 @@
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+
 export default function (eleventyConfig) {
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ["svg", "webp"],
+    widths: [96, 192],
+    svgShortCircuit: "size",
+    htmlOptions: {
+      imgAttributes: {
+        loading: "lazy",
+        decoding: "async"
+      }
+    }
+  });
+
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
   eleventyConfig.addCollection("jobs", (collectionApi) =>

@@ -4,7 +4,7 @@ layout: layouts/base.njk
 <article class="brand-detail">
   <a class="back-link" href="/">← All jobs</a>
   <header class="brand-header">
-    <img class="brand-logo" src="{{ logo }}" alt="{{ name }} logo">
+    <img class="brand-logo" src="{{ logo }}" alt="{{ name }} logo" eleventy:widths="96,192" eleventy:formats="svg,webp" sizes="96px">
     <div>
       <h1>{{ name }}</h1>
       {% if description %}<p class="brand-summary">{{ description }}</p>{% endif %}
@@ -28,12 +28,12 @@ layout: layouts/base.njk
           <div class="job-content">
             <h3><a href="{{ job.url }}">{{ job.data.title }}</a></h3>
             <ul class="job-facts" aria-label="Job details">
-              <li><img class="fact-icon" src="/assets/icons/map-pin.svg" alt="">{{ job.data.location }}</li>
-              <li><img class="fact-icon" src="/assets/icons/briefcase.svg" alt="">{{ job.data.employment_type }}</li>
-              {% if job.data.salary %}<li><img class="fact-icon" src="/assets/icons/dollar-sign.svg" alt="">{{ job.data.salary }}</li>{% endif %}
+              <li><img class="fact-icon" src="/assets/icons/map-pin.svg" alt="" eleventy:ignore>{{ job.data.location }}</li>
+              <li><img class="fact-icon" src="/assets/icons/briefcase.svg" alt="" eleventy:ignore>{{ job.data.employment_type }}</li>
+              {% if job.data.salary %}<li><img class="fact-icon" src="/assets/icons/dollar-sign.svg" alt="" eleventy:ignore>{{ job.data.salary }}</li>{% endif %}
             </ul>
           </div>
-          <a class="learn-more" href="{{ job.url }}">Learn more <img src="/assets/icons/arrow-right.svg" alt=""></a>
+          <a class="learn-more" href="{{ job.url }}">Learn more <img src="/assets/icons/arrow-right.svg" alt="" eleventy:ignore></a>
         </article>
       {% else %}
         <p>There are no open positions for {{ name }} right now.</p>

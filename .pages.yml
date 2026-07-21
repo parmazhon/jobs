@@ -1,7 +1,3 @@
-media:
-  input: src/assets/uploads
-  output: /assets/uploads
-
 content:
   - name: brands
     label: Brands
@@ -13,7 +9,11 @@ content:
       sort: [name]
     fields:
       - { name: name, label: Brand name, type: string, required: true }
-      - { name: logo, label: Logo, type: image, required: true }
+      - name: logo
+        label: Logo URL
+        type: string
+        required: true
+        description: Upload the logo to Cloudflare R2 and paste its public URL here.
       - { name: location, label: Location, type: string }
       - { name: website, label: Website, type: string }
       - { name: description, label: Short description, type: text }

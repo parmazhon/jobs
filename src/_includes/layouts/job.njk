@@ -7,7 +7,7 @@ layout: layouts/base.njk
   <header>
     {% if brandRecord %}
       <a class="job-brand" href="{{ brandRecord.url }}">
-        <img src="{{ brandRecord.data.logo }}" alt="">
+        <img src="{{ brandRecord.data.logo }}" alt="" eleventy:widths="96,192" eleventy:formats="svg,webp" sizes="96px">
         <span>{{ brandRecord.data.name }}</span>
       </a>
     {% endif %}
