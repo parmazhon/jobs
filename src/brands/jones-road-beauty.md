@@ -1,6 +1,6 @@
 ---
 name: Jones Road Beauty
-logo: https://media.creativestrategistjobs.com/logos/jones_road_beauty.jpg
+logo: https://media.creativestrategistjobs.com/logos/jonesroad.svg
 show_in_marquee: true
 industry: Beauty & personal care
 headquarters: Montclair, NJ
