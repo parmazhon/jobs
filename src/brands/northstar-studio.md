@@ -1,7 +1,7 @@
 ---
 name: Northstar Studio
 logo: /assets/uploads/northstar-studio.svg
-location: New York, NY
+headquarters: New York, NY
 website: https://example.com
 description: A brand and creative strategy studio.
 draft: false

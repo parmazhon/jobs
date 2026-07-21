@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+title: Brands
+description: Explore brands and agencies hiring creative strategists.
+permalink: /brands/index.html
+---
+<section class="brands-directory" aria-labelledby="brands-title">
+  <header class="directory-header">
+    <p class="directory-eyebrow">Brand directory</p>
+    <h1 id="brands-title">The brands behind the work</h1>
+    <p>Explore {{ collections.brands | length }} brands and agencies in creative strategy.</p>
+  </header>
+
+  <div class="brand-grid">
+    {% for brand in collections.brands %}
+      <a class="brand-card" href="{{ brand.url }}">
+        <span class="brand-card-logo">
+          {% if brand.data.logo %}
+            <img src="{{ brand.data.logo }}" alt="" eleventy:widths="192,384" eleventy:formats="svg,webp" sizes="(max-width: 520px) 40vw, 160px">
+          {% else %}
+            <span class="brand-monogram" aria-hidden="true">{{ brand.data.name | first }}</span>
+          {% endif %}
+        </span>
+        <span class="brand-card-name">{{ brand.data.name }}</span>
+        {% if brand.data.industry %}<span class="brand-card-industry">{{ brand.data.industry }}</span>{% endif %}
+      </a>
+    {% endfor %}
+  </div>
+</section>

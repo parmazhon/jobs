@@ -4,13 +4,15 @@ layout: layouts/base.njk
 <article class="brand-detail">
   <a class="back-link" href="/">← All jobs</a>
   <header class="brand-header">
-    <img class="brand-logo" src="{{ logo }}" alt="{{ name }} logo" eleventy:widths="96,192" eleventy:formats="svg,webp" sizes="96px">
+    {% if logo %}<img class="brand-logo" src="{{ logo }}" alt="{{ name }} logo" eleventy:widths="96,192" eleventy:formats="svg,webp" sizes="96px">{% endif %}
     <div>
       <h1>{{ name }}</h1>
       {% if description %}<p class="brand-summary">{{ description }}</p>{% endif %}
       <div class="brand-meta">
-        {% if location %}<span>{{ location }}</span>{% endif %}
+        {% if headquarters %}<span>{{ headquarters }}</span>{% endif %}
+        {% if industry %}<span>{{ industry }}</span>{% endif %}
         {% if website %}<a href="{{ website }}">Visit website ↗</a>{% endif %}
+        {% if careers_url %}<a href="{{ careers_url }}">Careers ↗</a>{% endif %}
       </div>
     </div>
   </header>

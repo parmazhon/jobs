@@ -4,7 +4,7 @@ content:
     type: collection
     path: src/brands
     view:
-      fields: [name, location, website, draft]
+      fields: [name, industry, headquarters, careers_url, draft]
       primary: name
       sort: [name]
     fields:
@@ -12,10 +12,24 @@ content:
       - name: logo
         label: Logo URL
         type: string
-        required: true
         description: Upload the logo to Cloudflare R2 and paste its public URL here.
-      - { name: location, label: Location, type: string }
+      - name: industry
+        label: Industry
+        type: select
+        options:
+          values:
+            - Apparel & footwear
+            - Beauty & personal care
+            - Brand & creative studio-first shops
+            - Food & beverage
+            - Full-funnel creative/performance
+            - Home & lifestyle
+            - Performance creative / paid social specialists
+            - UGC / content-native
+            - Wellness / supplements
+      - { name: headquarters, label: Headquarters location, type: string }
       - { name: website, label: Website, type: string }
+      - { name: careers_url, label: Careers page URL, type: string }
       - { name: description, label: Short description, type: text }
       - { name: draft, label: Draft, type: boolean, default: false }
       - { name: body, label: About the brand, type: rich-text }
