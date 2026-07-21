@@ -1,0 +1,5 @@
+{
+  "layout": "layouts/brand.njk",
+  "tags": ["brand"],
+  "permalink": "brands/{{ page.fileSlug }}/index.html"
+}

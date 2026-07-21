@@ -1,6 +1,6 @@
 ---
 title: Senior Creative Strategist
-company: Northstar Studio
+brand: northstar-studio
 location: New York, NY
 workplace: Hybrid
 employment_type: Full-time

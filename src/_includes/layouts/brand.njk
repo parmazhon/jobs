@@ -1,0 +1,43 @@
+---
+layout: layouts/base.njk
+---
+<article class="brand-detail">
+  <a class="back-link" href="/">← All jobs</a>
+  <header class="brand-header">
+    <img class="brand-logo" src="{{ logo }}" alt="{{ name }} logo">
+    <div>
+      <h1>{{ name }}</h1>
+      {% if description %}<p class="brand-summary">{{ description }}</p>{% endif %}
+      <div class="brand-meta">
+        {% if location %}<span>{{ location }}</span>{% endif %}
+        {% if website %}<a href="{{ website }}">Visit website ↗</a>{% endif %}
+      </div>
+    </div>
+  </header>
+
+  {% if content %}<div class="prose">{{ content | safe }}</div>{% endif %}
+
+  {% set brandJobs = collections.jobs | jobsByBrand(page.fileSlug) %}
+  <section class="brand-jobs" aria-labelledby="brand-jobs-title">
+    <div class="section-heading">
+      <h2 id="brand-jobs-title">Open positions</h2>
+    </div>
+    <div class="job-list">
+      {% for job in brandJobs %}
+        <article class="job-card">
+          <div class="job-content">
+            <h3><a href="{{ job.url }}">{{ job.data.title }}</a></h3>
+            <ul class="job-facts" aria-label="Job details">
+              <li><img class="fact-icon" src="/assets/icons/map-pin.svg" alt="">{{ job.data.location }}</li>
+              <li><img class="fact-icon" src="/assets/icons/briefcase.svg" alt="">{{ job.data.employment_type }}</li>
+              {% if job.data.salary %}<li><img class="fact-icon" src="/assets/icons/dollar-sign.svg" alt="">{{ job.data.salary }}</li>{% endif %}
+            </ul>
+          </div>
+          <a class="learn-more" href="{{ job.url }}">Learn more <img src="/assets/icons/arrow-right.svg" alt=""></a>
+        </article>
+      {% else %}
+        <p>There are no open positions for {{ name }} right now.</p>
+      {% endfor %}
+    </div>
+  </section>
+</article>

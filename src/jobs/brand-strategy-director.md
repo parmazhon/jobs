@@ -1,6 +1,6 @@
 ---
 title: Brand Strategy Director
-company: Fieldwork
+brand: fieldwork
 location: Remote, US
 workplace: Remote
 employment_type: Full-time

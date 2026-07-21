@@ -8,6 +8,21 @@ export default function (eleventyConfig) {
       .sort((a, b) => new Date(b.data.posted) - new Date(a.data.posted))
   );
 
+  eleventyConfig.addCollection("brands", (collectionApi) =>
+    collectionApi
+      .getFilteredByGlob("src/brands/*.md")
+      .filter((brand) => !brand.data.draft)
+      .sort((a, b) => a.data.name.localeCompare(b.data.name))
+  );
+
+  eleventyConfig.addFilter("brandBySlug", (brands, slug) =>
+    (brands || []).find((brand) => brand.fileSlug === slug)
+  );
+
+  eleventyConfig.addFilter("jobsByBrand", (jobs, slug) =>
+    (jobs || []).filter((job) => job.data.brand === slug)
+  );
+
   eleventyConfig.addFilter("readableDate", (value) =>
     new Intl.DateTimeFormat("en-US", {
       month: "short",

@@ -1,6 +1,6 @@
 ---
 title: Creative Producer
-company: Form & Function
+brand: form-and-function
 location: Los Angeles, CA
 workplace: In-Person
 employment_type: Full-Time

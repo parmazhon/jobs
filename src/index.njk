@@ -21,6 +21,7 @@ intro: Discover the best jobs from the best agencies and brands in DTC, Ecommerc
 
   <div class="job-list">
     {% for job in collections.jobs %}
+      {% set brand = collections.brands | brandBySlug(job.data.brand) %}
       <article class="job-card">
         <div class="job-content">
           <div class="job-overview">
@@ -32,10 +33,18 @@ intro: Discover the best jobs from the best agencies and brands in DTC, Ecommerc
             </ul>
           </div>
           <div class="company-row">
-            <span class="company-mark company-mark--{{ loop.index }}" aria-hidden="true"></span>
+            {% if brand %}
+              <a class="company-mark" href="{{ brand.url }}" aria-label="View {{ brand.data.name }}">
+                <img src="{{ brand.data.logo }}" alt="">
+              </a>
+            {% else %}
+              <span class="company-mark" aria-hidden="true"></span>
+            {% endif %}
             <div>
-              <p class="company">{{ job.data.company }}</p>
-              <p class="company-detail">Creative company in {{ job.data.location }}</p>
+              <p class="company">
+                {% if brand %}<a href="{{ brand.url }}">{{ brand.data.name }}</a>{% else %}Brand{% endif %}
+              </p>
+              <p class="company-detail">{% if brand and brand.data.description %}{{ brand.data.description }}{% else %}Creative company in {{ job.data.location }}{% endif %}</p>
             </div>
           </div>
         </div>

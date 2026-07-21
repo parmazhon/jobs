@@ -3,12 +3,29 @@ media:
   output: /assets/uploads
 
 content:
+  - name: brands
+    label: Brands
+    type: collection
+    path: src/brands
+    view:
+      fields: [name, location, website, draft]
+      primary: name
+      sort: [name]
+    fields:
+      - { name: name, label: Brand name, type: string, required: true }
+      - { name: logo, label: Logo, type: image, required: true }
+      - { name: location, label: Location, type: string }
+      - { name: website, label: Website, type: string }
+      - { name: description, label: Short description, type: text }
+      - { name: draft, label: Draft, type: boolean, default: false }
+      - { name: body, label: About the brand, type: rich-text }
+
   - name: jobs
     label: Jobs
     type: collection
     path: src/jobs
     view:
-      fields: [title, company, location, employment_type, posted, draft]
+      fields: [title, brand, location, employment_type, posted, draft]
       primary: title
       sort: [posted, title]
       default:
@@ -16,7 +33,14 @@ content:
         order: desc
     fields:
       - { name: title, label: Job title, type: string, required: true }
-      - { name: company, label: Company, type: string, required: true }
+      - name: brand
+        label: Brand
+        type: reference
+        required: true
+        options:
+          collection: brands
+          value: "{filename}"
+          label: "{name}"
       - { name: location, label: Location, type: string, required: true }
       - name: workplace
         label: Workplace
