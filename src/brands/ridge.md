@@ -1,6 +1,6 @@
 ---
 name: Ridge
-logo: https://media.creativestrategistjobs.com/logos/ridge.png
+logo: https://media.creativestrategistjobs.com/logos/ridge.svg
 show_in_marquee: true
 industry: Apparel & footwear
 headquarters: Santa Monica, CA
