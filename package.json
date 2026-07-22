@@ -6,7 +6,9 @@
   "description": "A creative strategy jobs board built with Eleventy and Pages CMS.",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "jobs:inventory": "node automation/skills/career-job-scout/scripts/job-scout.mjs inventory",
+    "jobs:validate": "node automation/skills/career-job-scout/scripts/job-scout.mjs validate"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",

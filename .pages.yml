@@ -84,6 +84,71 @@ content:
       - { name: posted, label: Posted, type: date, required: true }
       - { name: featured, label: Featured, type: boolean, default: false }
       - { name: draft, label: Draft, type: boolean, default: false }
+      - { name: source_url, label: Source URL, type: string }
+      - { name: source_job_id, label: Source job ID, type: string }
+      - { name: source_title, label: Original job title, type: string }
+      - { name: discovered_at, label: Discovered, type: date }
+      - { name: last_seen_at, label: Last seen, type: date }
+      - { name: body, label: Description, type: rich-text }
+
+  - name: job-drafts
+    label: Jobs to review
+    type: collection
+    path: src/job-drafts
+    exclude: [.gitkeep]
+    view:
+      fields: [title, brand, location, discovered_at, review_status]
+      primary: title
+      sort: [discovered_at, title, brand]
+      default:
+        sort: discovered_at
+        order: desc
+    operations:
+      delete: true
+    fields:
+      - { name: title, label: Job title, type: string, required: true }
+      - name: brand
+        label: Brand
+        type: reference
+        required: true
+        options:
+          collection: brands
+          value: "{filename}"
+          label: "{name}"
+      - { name: location, label: Location, type: string, required: true }
+      - name: workplace
+        label: Workplace
+        type: select
+        options:
+          values: [Remote, Hybrid, On-site]
+      - name: employment_type
+        label: Employment type
+        type: select
+        options:
+          values: [Full-time, Part-time, Contract, Freelance, Internship]
+      - { name: salary, label: Salary, type: string }
+      - { name: apply_url, label: Application URL, type: string, required: true }
+      - { name: posted, label: Posted, type: date, required: true }
+      - { name: featured, label: Featured, type: boolean, default: false }
+      - { name: draft, label: Draft, type: boolean, default: true, readonly: true }
+      - name: review_status
+        label: Review status
+        type: select
+        required: true
+        options:
+          values:
+            - { name: needs-review, label: Needs review }
+            - { name: approved, label: Approved }
+            - { name: rejected, label: Rejected }
+      - { name: source_url, label: Source URL, type: string, required: true }
+      - { name: source_job_id, label: Source job ID, type: string }
+      - { name: source_title, label: Original job title, type: string }
+      - { name: discovered_at, label: Discovered, type: date, required: true }
+      - { name: last_seen_at, label: Last seen, type: date }
+      - name: match_keywords
+        label: Match keywords
+        type: string
+        list: true
       - { name: body, label: Description, type: rich-text }
 
   - name: settings

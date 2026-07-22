@@ -1,0 +1,4 @@
+interface:
+  display_name: "Career Job Scout"
+  short_description: "Find and draft relevant creative jobs"
+  default_prompt: "Use $career-job-scout to scan brand career pages and prepare a draft pull request."
