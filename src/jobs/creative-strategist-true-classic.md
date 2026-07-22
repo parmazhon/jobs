@@ -6,7 +6,7 @@ workplace: Hybrid
 salary: Competitive salary + bonus
 apply_url: https://job-boards.greenhouse.io/trueclassicteesllc/jobs/5224232008
 posted: 2026-07-22
-featured: false
+featured: true
 draft: false
 source_url: https://job-boards.greenhouse.io/trueclassicteesllc/jobs/5224232008
 source_job_id: "5224232008"
