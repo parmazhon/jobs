@@ -15,8 +15,9 @@ permalink: /brands/index.html
     {% for brand in collections.brands %}
       <a class="brand-card" href="{{ brand.url }}">
         <span class="brand-card-logo" style="--avatar-bg: {{ brand.data.avatar_background or '#ffffff' }}">
-          {% if brand.data.logo %}
-            <img src="{{ brand.data.logo }}" alt="" eleventy:widths="192,384" eleventy:formats="svg,webp" sizes="(max-width: 520px) 40vw, 160px">
+          {% set avatarLogo = brand.data.avatar_logo or brand.data.logo %}
+          {% if avatarLogo %}
+            <img src="{{ avatarLogo }}" alt="" eleventy:widths="192,384" eleventy:formats="svg,webp" sizes="(max-width: 520px) 40vw, 160px">
           {% else %}
             <span class="brand-monogram" aria-hidden="true">{{ brand.data.name | first }}</span>
           {% endif %}

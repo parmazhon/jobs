@@ -50,7 +50,8 @@ intro: Discover the best jobs from the best agencies and brands in DTC, Ecommerc
           <div class="company-row">
             {% if brand %}
               <a class="company-mark" href="{{ brand.url }}" aria-label="View {{ brand.data.name }}" style="--avatar-bg: {{ brand.data.avatar_background or '#ffffff' }}">
-                {% if brand.data.logo %}<img src="{{ brand.data.logo }}" alt="" eleventy:widths="96,192" eleventy:formats="svg,webp" sizes="96px">{% else %}<span class="company-monogram" aria-hidden="true">{{ brand.data.name | first }}</span>{% endif %}
+                {% set avatarLogo = brand.data.avatar_logo or brand.data.logo %}
+                {% if avatarLogo %}<img src="{{ avatarLogo }}" alt="" eleventy:widths="96,192" eleventy:formats="svg,webp" sizes="96px">{% else %}<span class="company-monogram" aria-hidden="true">{{ brand.data.name | first }}</span>{% endif %}
               </a>
             {% else %}
               <span class="company-mark" aria-hidden="true"></span>

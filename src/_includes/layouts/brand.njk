@@ -4,7 +4,8 @@ layout: layouts/base.njk
 <article class="brand-detail">
   <a class="back-link" href="/">← All jobs</a>
   <header class="brand-header">
-    {% if logo %}<img class="brand-logo" src="{{ logo }}" alt="{{ name }} logo" style="--avatar-bg: {{ avatar_background or '#ffffff' }}" eleventy:widths="96,192" eleventy:formats="svg,webp" sizes="96px">{% endif %}
+    {% set avatarLogo = avatar_logo or logo %}
+    {% if avatarLogo %}<img class="brand-logo" src="{{ avatarLogo }}" alt="{{ name }} logo" style="--avatar-bg: {{ avatar_background or '#ffffff' }}" eleventy:widths="96,192" eleventy:formats="svg,webp" sizes="96px">{% endif %}
     <div>
       <h1>{{ name }}</h1>
       {% if description %}<p class="brand-summary">{{ description }}</p>{% endif %}

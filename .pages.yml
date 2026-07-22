@@ -13,6 +13,10 @@ content:
         label: Logo URL
         type: string
         description: Upload the logo to Cloudflare R2 and paste its public URL here.
+      - name: avatar_logo
+        label: Avatar/card logo URL
+        type: string
+        description: Optional alternate logo for circular avatars and brand cards. Falls back to the primary logo when empty.
       - name: avatar_background
         label: Logo avatar background
         type: string

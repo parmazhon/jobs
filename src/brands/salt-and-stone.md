@@ -1,0 +1,11 @@
+---
+name: "SALT & STONE"
+logo: "https://media.creativestrategistjobs.com/logos/saltandstone-stacked.svg"
+avatar_background: "#EDEAE5"
+show_in_marquee: false
+industry: "Beauty & personal care"
+headquarters: "Los Angeles, CA"
+website: "https://www.saltandstone.com/"
+description: "Iconic scents and active formulas for body care, skincare, and fragrance."
+draft: false
+---
