@@ -7,7 +7,7 @@ employment_type: Full-time
 salary: $130,000/year
 apply_url: https://tally.so/r/3xjKO9
 posted: 2026-07-01
-featured: false
+featured: true
 draft: false
 source_url: https://www.linkedin.com/jobs/view/4431874679/
 source_job_id: "4431874679"
