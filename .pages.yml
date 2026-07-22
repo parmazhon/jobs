@@ -13,6 +13,14 @@ content:
         label: Logo URL
         type: string
         description: Upload the logo to Cloudflare R2 and paste its public URL here.
+      - name: avatar_background
+        label: Logo avatar background
+        type: string
+        default: "#ffffff"
+        pattern:
+          regex: "^#[0-9a-fA-F]{6}$"
+          message: Enter a six-digit hex color, such as #ffffff.
+        description: Used behind the logo in circular and avatar-style placements.
       - name: show_in_marquee
         label: Show in homepage marquee
         type: boolean
