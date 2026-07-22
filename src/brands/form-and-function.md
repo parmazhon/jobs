@@ -1,7 +1,8 @@
 ---
 name: Form & Function
 logo: /assets/uploads/form-and-function.svg
-show_in_marquee: true
+avatar_background: "#ffffff"
+show_in_marquee: false
 headquarters: Los Angeles, CA
 website: https://example.com
 description: A creative production company.
