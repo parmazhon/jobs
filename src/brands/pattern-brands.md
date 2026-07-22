@@ -1,5 +1,5 @@
 ---
-name: "Gin Lane (now Pattern Brands)"
+name: "Pattern Brands (formerly Gin Lane)"
 logo: "https://media.creativestrategistjobs.com/logos/pattern_brands.png"
 industry: "Brand & creative studio-first shops"
 headquarters: "New York, NY"
