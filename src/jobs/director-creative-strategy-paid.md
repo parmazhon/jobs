@@ -7,7 +7,7 @@ employment_type: Full-time
 salary: $120,000–$140,000
 apply_url: https://jobs.ashbyhq.com/darkroom/3607a04f-6818-4635-a308-bc1444d227ab
 posted: 2026-06-02
-featured: false
+featured: true
 draft: false
 source_url: https://jobs.ashbyhq.com/darkroom/3607a04f-6818-4635-a308-bc1444d227ab
 source_job_id: 3607a04f-6818-4635-a308-bc1444d227ab
