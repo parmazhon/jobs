@@ -1,6 +1,6 @@
 ---
 name: True Classic
-logo: https://media.creativestrategistjobs.com/logos/true_classic.jpg
+logo: https://media.creativestrategistjobs.com/logos/trueclassic.svg
 show_in_marquee: true
 industry: Apparel & footwear
 headquarters: Calabasas, CA
