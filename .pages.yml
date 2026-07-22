@@ -30,6 +30,19 @@ content:
         type: boolean
         default: false
         description: Include this brand's logo in the moving strip below the homepage hero.
+      - name: marquee_width
+        label: Marquee logo width (px)
+        type: number
+        description: Optional custom width for this logo in the homepage marquee. Defaults to 150px and is capped at 120px on mobile.
+      - name: marquee_scale
+        label: Marquee logo scale
+        type: number
+        description: Optional optical scale adjustment for logos with extra whitespace in their source image. Defaults to 1.
+      - name: marquee_darken
+        label: Darken marquee logo
+        type: boolean
+        default: false
+        description: Convert a white or very light transparent logo to the marquee's dark gray treatment.
       - name: industry
         label: Industry
         type: select

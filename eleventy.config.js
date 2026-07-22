@@ -4,6 +4,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     formats: ["svg", "webp"],
     widths: [96, 192],
+    transformOnRequest: false,
     svgShortCircuit: "size",
     htmlOptions: {
       imgAttributes: {

@@ -2,6 +2,7 @@
 name: True Classic
 logo: https://media.creativestrategistjobs.com/logos/trueclassic.svg
 show_in_marquee: true
+marquee_width: 125
 industry: Apparel & footwear
 headquarters: Calabasas, CA
 careers_url: https://www.trueclassictees.com/pages/careers

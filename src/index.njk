@@ -19,8 +19,8 @@ intro: Discover the best jobs from the best agencies and brands in DTC, Ecommerc
       {% for copy in [1, 2] %}
         <div class="logo-marquee__group"{% if copy == 2 %} aria-hidden="true"{% endif %}>
           {% for brand in marqueeBrands %}
-            <div class="logo-marquee__item">
-              <img src="{{ brand.data.logo }}" alt="{{ brand.data.name }}" eleventy:ignore>
+            <div class="logo-marquee__item"{% if brand.data.marquee_width or brand.data.marquee_scale or brand.data.marquee_darken %} style="{% if brand.data.marquee_width %}--marquee-width: {{ brand.data.marquee_width }}px;{% endif %}{% if brand.data.marquee_scale %} --marquee-scale: {{ brand.data.marquee_scale }};{% endif %}{% if brand.data.marquee_darken %} --marquee-filter: grayscale(1) brightness(.25);{% endif %}"{% endif %}>
+              <img src="{{ brand.data.logo }}" alt="{{ brand.data.name }}" eleventy:widths="192,384" eleventy:formats="svg,webp" sizes="(max-width: 680px) 120px, 150px">
             </div>
           {% endfor %}
         </div>
