@@ -376,6 +376,13 @@ a { color: inherit; }
 .guide-cta h2 { margin-bottom: 14px; }
 .guide-cta > p:not(.guide-kicker) { max-width: 500px; margin: 0 0 26px; color: #c8c6c3; font: 16px/1.55 Georgia, "Times New Roman", serif; }
 .guide-cta .button { width: auto; min-width: 132px; padding: 0 24px; background: #fff; border-color: #fff; color: #111; box-shadow: none; }
+.guide-cta-form { display: grid; max-width: 500px; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+.guide-cta-form input { min-width: 0; height: 48px; padding: 0 15px; border: 1px solid #555; border-radius: 6px; color: #fff; background: #242424; font: 15px/1 "Outfit", sans-serif; }
+.guide-cta-form input::placeholder { color: #aaa; opacity: 1; }
+.guide-cta-form input:focus { outline: 2px solid #fff; outline-offset: 2px; }
+.guide-cta-form button { height: 48px; padding: 0 20px; border: 1px solid #fff; border-radius: 6px; color: #111; background: #fff; font: 500 14px/1 "Outfit", sans-serif; cursor: pointer; }
+.guide-cta-form button:hover { background: #e9e8e6; }
+.guide-cta-form button:focus-visible { outline: 3px solid #927f69; outline-offset: 3px; }
 .related-guides { margin-top: 100px; padding-top: 40px; border-top: 1px solid var(--border); }
 .related-guides .guide-card { min-height: 250px; padding: 26px; }
 .related-guides .guide-card p { font-size: 14px; }
@@ -464,6 +471,8 @@ a { color: inherit; }
   .guide-prose th, .guide-prose td { min-width: 130px; padding: 10px; }
   .guide-section-heading { align-items: flex-start; }
   .guide-section-heading h2, .guide-faq > h2, .guide-cta h2, .related-guides > h2 { font-size: 28px; }
+  .guide-cta-form { grid-template-columns: 1fr; }
+  .guide-cta-form button { width: 100%; }
   .guide-job-results .job-card { padding: 18px; }
   .related-guides { margin-top: 72px; }
   .post-job-page { padding-top: 64px; }

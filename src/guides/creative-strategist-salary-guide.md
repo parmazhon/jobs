@@ -8,6 +8,7 @@ eyebrow: 2026 compensation guide
 card_label: Salary
 guide_order: 2
 reading_time: 8 min read
+cta: job-updates
 sections:
   - id: ranges
     label: Salary ranges

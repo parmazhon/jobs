@@ -8,6 +8,7 @@ eyebrow: Career roadmap
 card_label: Career guide
 guide_order: 3
 reading_time: 10 min read
+cta: job-updates
 sections:
   - id: paths
     label: Entry paths

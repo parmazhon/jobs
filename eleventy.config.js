@@ -36,6 +36,10 @@ export default function (eleventyConfig) {
       .sort((a, b) => (a.data.guide_order || 99) - (b.data.guide_order || 99))
   );
 
+  eleventyConfig.addCollection("ctas", (collectionApi) =>
+    collectionApi.getFilteredByGlob("src/ctas/*.md")
+  );
+
   eleventyConfig.addFilter("brandBySlug", (brands, slug) =>
     (brands || []).find((brand) => brand.fileSlug === slug)
   );
@@ -52,6 +56,10 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("guideBySlug", (guides, slug) =>
     (guides || []).find((guide) => guide.fileSlug === slug)
+  );
+
+  eleventyConfig.addFilter("ctaBySlug", (ctas, slug) =>
+    (ctas || []).find((cta) => cta.fileSlug === slug)
   );
 
   eleventyConfig.addFilter("jsonString", (value) => JSON.stringify(value));

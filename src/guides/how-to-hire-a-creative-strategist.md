@@ -8,6 +8,7 @@ eyebrow: Employer guide
 card_label: For employers
 guide_order: 6
 reading_time: 11 min read
+cta: post-a-job
 sections:
   - id: when
     label: When to hire
@@ -28,11 +29,6 @@ related:
   - creative-strategist-job-description
   - creative-strategist-interview-questions
   - creative-strategist-portfolio-guide
-cta_kicker: Find your strategist
-cta_title: Put your role in front of focused candidates
-cta_text: Reach people specifically interested in creative strategy, performance creative, and adjacent roles.
-cta_label: Post a job
-cta_url: mailto:hello@creativestrategyjobs.com?subject=Post%20a%20creative%20strategy%20job
 ---
 <h2 id="when">When do you need a creative strategist?</h2>
 

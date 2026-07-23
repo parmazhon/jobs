@@ -8,6 +8,7 @@ eyebrow: Live job collection
 card_label: Open roles
 guide_order: 4
 reading_time: 6 min read
+cta: job-updates
 permalink: jobs/remote-creative-strategist-jobs/index.html
 show_remote_jobs: true
 sections:

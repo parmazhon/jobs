@@ -76,12 +76,24 @@ layout: layouts/base.njk
         </section>
       {% endif %}
 
-      <aside class="guide-cta">
-        <p class="guide-kicker">{{ cta_kicker or "Find your next role" }}</p>
-        <h2>{{ cta_title or "Put this guide into practice" }}</h2>
-        <p>{{ cta_text or "Explore current creative strategy opportunities at growing brands and agencies." }}</p>
-        <a class="button button--dark" href="{{ cta_url or "/#jobs" }}">{{ cta_label or "Browse jobs" }}</a>
-      </aside>
+      {% set ctaSlug = cta or "job-updates" %}
+      {% set guideCta = collections.ctas | ctaBySlug(ctaSlug) %}
+      {% if guideCta %}
+        <aside class="guide-cta">
+          <p class="guide-kicker">{{ guideCta.data.kicker }}</p>
+          <h2>{{ guideCta.data.title }}</h2>
+          <p>{{ guideCta.data.text }}</p>
+          {% if guideCta.data.type == "newsletter" %}
+            <form class="guide-cta-form" action="{{ site.newsletter.form_action }}" method="post">
+              <label class="visually-hidden" for="guide-newsletter-{{ page.fileSlug }}">Email address</label>
+              <input id="guide-newsletter-{{ page.fileSlug }}" name="fields[email]" type="email" autocomplete="email" placeholder="Email address" required>
+              <button type="submit">{{ guideCta.data.label }} <span aria-hidden="true">→</span></button>
+            </form>
+          {% else %}
+            <a class="button button--dark" href="{{ guideCta.data.url }}">{{ guideCta.data.label }}</a>
+          {% endif %}
+        </aside>
+      {% endif %}
     </div>
   </div>
 

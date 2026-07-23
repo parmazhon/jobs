@@ -8,6 +8,7 @@ eyebrow: Role explained
 card_label: Start here
 guide_order: 1
 reading_time: 9 min read
+cta: job-updates
 sections:
   - id: role
     label: The role

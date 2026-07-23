@@ -8,6 +8,7 @@ eyebrow: Interview guide
 card_label: Interview prep
 guide_order: 7
 reading_time: 12 min read
+cta: job-updates
 sections:
   - id: candidate
     label: Candidate prep

@@ -8,6 +8,7 @@ eyebrow: Employer template
 card_label: Hiring template
 guide_order: 5
 reading_time: 10 min read
+cta: post-a-job
 sections:
   - id: template
     label: Job description template
@@ -28,11 +29,6 @@ related:
   - how-to-hire-a-creative-strategist
   - creative-strategist-interview-questions
   - creative-strategist-salary-guide
-cta_kicker: Ready to hire?
-cta_title: Reach experienced creative strategy candidates
-cta_text: Post your role where creative strategists are already looking for their next opportunity.
-cta_label: Post a job
-cta_url: mailto:hello@creativestrategyjobs.com?subject=Post%20a%20creative%20strategy%20job
 ---
 Most weak creative strategist job descriptions begin with a generic paragraph about creativity and end with an impossible list of tools. A useful description tells candidates what decisions they will make, what resources they have, and what success looks like.
 

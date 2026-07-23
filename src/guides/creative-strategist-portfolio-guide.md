@@ -8,6 +8,7 @@ eyebrow: Portfolio playbook
 card_label: Portfolio
 guide_order: 8
 reading_time: 11 min read
+cta: job-updates
 sections:
   - id: include
     label: What to include

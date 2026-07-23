@@ -176,6 +176,41 @@ content:
       - { name: name, label: Site name, type: string }
       - { name: description, label: Description, type: text }
       - { name: email, label: Contact email, type: string }
+      - name: newsletter
+        label: Newsletter
+        type: object
+        fields:
+          - name: form_action
+            label: Drip form action URL
+            type: string
+            description: Paste the form action URL from the Drip embedded form code.
+
+  - name: ctas
+    label: Article CTAs
+    type: collection
+    path: src/ctas
+    exclude: [ctas.json]
+    view:
+      fields: [title, type, label]
+      primary: title
+      sort: [title]
+    fields:
+      - { name: kicker, label: Eyebrow, type: string, required: true }
+      - { name: title, label: Heading, type: string, required: true }
+      - { name: text, label: Description, type: text, required: true }
+      - name: type
+        label: CTA type
+        type: select
+        required: true
+        options:
+          values:
+            - { name: link, label: Link button }
+            - { name: newsletter, label: Newsletter form }
+      - { name: label, label: Button label, type: string, required: true }
+      - name: url
+        label: Link URL
+        type: string
+        description: Required for link CTAs. Newsletter CTAs submit through the Drip form configured in Site settings.
 
   - name: home
     label: Homepage
