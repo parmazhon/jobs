@@ -31,8 +31,9 @@ layout: layouts/base.njk
           <div class="job-content">
             <h3><a href="{{ job.url }}">{{ job.data.title }}</a></h3>
             <ul class="job-facts" aria-label="Job details">
-              <li><img class="fact-icon" src="/assets/icons/map-pin.svg" alt="" eleventy:ignore>{{ job.data.location }}</li>
-              <li><img class="fact-icon" src="/assets/icons/briefcase.svg" alt="" eleventy:ignore>{{ job.data.employment_type }}</li>
+              {% if job.data.location %}<li><img class="fact-icon" src="/assets/icons/map-pin.svg" alt="" eleventy:ignore>{{ job.data.location }}</li>{% endif %}
+              {% if job.data.workplace %}<li><img class="fact-icon" src="/assets/icons/monitor.svg" alt="" eleventy:ignore>{{ job.data.workplace }}</li>{% endif %}
+              {% if job.data.employment_type %}<li><img class="fact-icon" src="/assets/icons/briefcase.svg" alt="" eleventy:ignore>{{ job.data.employment_type }}</li>{% endif %}
               {% if job.data.salary %}<li><img class="fact-icon" src="/assets/icons/dollar-sign.svg" alt="" eleventy:ignore>{{ job.data.salary }}</li>{% endif %}
             </ul>
           </div>

@@ -4,7 +4,7 @@ layout: layouts/base.njk
 <article class="job-detail">
   {% set brandRecord = collections.brands | brandBySlug(brand) %}
   <a class="back-link" href="/#jobs">← All jobs</a>
-  <header>
+  <header class="job-detail-header">
     {% if brandRecord %}
       <a class="job-brand" href="{{ brandRecord.url }}">
         {% set avatarLogo = brandRecord.data.avatar_logo or brandRecord.data.logo %}
@@ -13,8 +13,13 @@ layout: layouts/base.njk
       </a>
     {% endif %}
     <h1>{{ title }}</h1>
-    <p class="job-detail-meta">{{ location }} · {{ workplace }} · {{ employment_type }}</p>
-    {% if salary %}<p>{{ salary }}</p>{% endif %}
+    <ul class="job-detail-facts" aria-label="Job details">
+      {% if location %}<li><img class="fact-icon" src="/assets/icons/map-pin.svg" alt="" eleventy:ignore><span>{{ location }}</span></li>{% endif %}
+      {% if workplace %}<li><img class="fact-icon" src="/assets/icons/monitor.svg" alt="" eleventy:ignore><span>{{ workplace }}</span></li>{% endif %}
+      {% if employment_type %}<li><img class="fact-icon" src="/assets/icons/briefcase.svg" alt="" eleventy:ignore><span>{{ employment_type }}</span></li>{% endif %}
+      {% if salary %}<li><img class="fact-icon" src="/assets/icons/dollar-sign.svg" alt="" eleventy:ignore><span>{{ salary }}</span></li>{% endif %}
+    </ul>
+    <a class="button button--dark job-header-cta" href="{{ apply_url }}">Apply for this role</a>
   </header>
   <div class="prose">{{ content | safe }}</div>
   <a class="button button--dark" href="{{ apply_url }}">Apply for this role</a>
