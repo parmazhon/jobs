@@ -323,6 +323,35 @@ a { color: inherit; }
 .related-guides .guide-card { min-height: 250px; padding: 26px; }
 .related-guides .guide-card p { font-size: 14px; }
 
+.post-job-page { width: min(1120px, calc(100% - 2 * var(--space-page))); margin: 0 auto; padding: 88px 0 120px; }
+.post-job-hero { max-width: 760px; margin-bottom: 56px; }
+.post-job-eyebrow { margin: 0 0 12px; color: #86786a; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.post-job-hero h1 { margin: 0; font-size: clamp(48px, 7vw, 78px); line-height: .95; letter-spacing: -.045em; }
+.post-job-hero > p:last-child { max-width: 620px; margin: 24px 0 0; color: var(--body); font: 20px/1.5 Georgia, "Times New Roman", serif; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.pricing-card { position: relative; display: flex; min-width: 0; min-height: 500px; flex-direction: column; justify-content: space-between; gap: 40px; padding: 30px; border: 1px solid var(--border); border-radius: 16px; background: var(--grey-100); }
+.pricing-card--popular { border-color: #222; background: #f3eee8; box-shadow: 0 18px 44px rgba(34,34,34,.09); }
+.pricing-card__badge { position: absolute; top: 16px; right: 16px; margin: 0; padding: 5px 9px; border-radius: 100px; color: #fff; background: #222; font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.pricing-card__label { margin: 0 0 14px; color: #86786a; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.pricing-card h2 { max-width: 220px; margin: 0; font-size: 30px; line-height: 1.04; letter-spacing: -.03em; }
+.pricing-card__description { margin: 18px 0 0; color: var(--body); font: 15px/1.55 Georgia, "Times New Roman", serif; }
+.pricing-card__price { margin: 0 0 22px; color: var(--body); font-size: 12px; font-weight: 500; }
+.pricing-card__price span { display: block; margin-bottom: 2px; color: var(--heading); font-size: 38px; font-weight: 600; line-height: 1; letter-spacing: -.035em; }
+.pricing-card__features { display: grid; gap: 11px; min-height: 105px; margin: 0 0 28px; padding: 0; color: #575553; font-size: 13px; list-style: none; }
+.pricing-card__features li { position: relative; padding-left: 22px; }
+.pricing-card__features li::before { content: "✓"; position: absolute; left: 0; top: -1px; color: #766858; font-weight: 700; }
+.button--pricing { width: 100%; padding: 0 18px; background: #fff; }
+.button--dark.button--pricing { color: #fff; background: #111; }
+.post-job-footer { display: grid; grid-template-columns: minmax(220px, .75fr) 1.25fr; gap: 72px; margin-top: 88px; padding: 48px; border: 1px solid var(--border); border-radius: 16px; }
+.post-job-footer h2 { margin: 0; font-size: 34px; line-height: 1.05; letter-spacing: -.03em; }
+.post-job-footer ol { display: grid; gap: 24px; margin: 0; padding: 0; list-style: none; }
+.post-job-footer li { display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: start; }
+.post-job-footer li > span { display: flex; width: 28px; height: 28px; align-items: center; justify-content: center; border-radius: 50%; color: #fff; background: #222; font-size: 11px; font-weight: 700; }
+.post-job-footer strong { font-size: 14px; }
+.post-job-footer li p { margin: 3px 0 0; color: var(--body); font: 14px/1.45 Georgia, "Times New Roman", serif; }
+.post-job-contact { margin: 28px 0 0; color: var(--body); font-size: 13px; text-align: center; }
+.post-job-contact a { color: var(--heading); font-weight: 600; text-underline-offset: 3px; }
+
 @media (max-width: 680px) {
   .site-header { width: calc(100% - 32px); padding-top: 24px; }
   .site-name { width: 82px; flex-shrink: 0; font-size: 17px; letter-spacing: -.02em; }
@@ -375,6 +404,14 @@ a { color: inherit; }
   .guide-section-heading h2, .guide-faq > h2, .guide-cta h2, .related-guides > h2 { font-size: 28px; }
   .guide-job-results .job-card { padding: 18px; }
   .related-guides { margin-top: 72px; }
+  .post-job-page { padding-top: 64px; }
+  .post-job-hero { margin-bottom: 40px; }
+  .post-job-hero h1 { font-size: 48px; }
+  .post-job-hero > p:last-child { font-size: 18px; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-card { min-height: 0; padding: 28px; }
+  .pricing-card__features { min-height: 0; }
+  .post-job-footer { grid-template-columns: 1fr; gap: 36px; margin-top: 64px; padding: 32px 28px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

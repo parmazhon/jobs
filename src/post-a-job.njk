@@ -1,0 +1,81 @@
+---
+layout: layouts/base.njk
+title: Post a creative strategy job
+description: Reach creative strategists with a job post, a dedicated email, or a featured hiring campaign.
+permalink: /post-a-job/index.html
+---
+<section class="post-job-page">
+  <header class="post-job-hero">
+    <p class="post-job-eyebrow">Hire creative talent</p>
+    <h1>Put your role in front of the right creative strategists.</h1>
+    <p>Choose the level of reach that fits your hiring push. Every option starts with a live listing on Creative Strategy Jobs.</p>
+  </header>
+
+  <div class="pricing-grid" aria-label="Job posting options">
+    <article class="pricing-card">
+      <div>
+        <p class="pricing-card__label">Job post</p>
+        <h2>Website</h2>
+        <p class="pricing-card__description">A focused listing for teams ready to meet candidates actively browsing creative strategy roles.</p>
+      </div>
+      <div>
+        <p class="pricing-card__price"><span>$500</span> one time</p>
+        <ul class="pricing-card__features">
+          <li>Job listing on the website</li>
+          <li>Direct link to your application</li>
+          <li>Company profile and brand logo</li>
+        </ul>
+        <a class="button button--pricing" href="{{ site.post_job_checkout.website }}">Choose website</a>
+      </div>
+    </article>
+
+    <article class="pricing-card pricing-card--popular">
+      <p class="pricing-card__badge">Most popular</p>
+      <div>
+        <p class="pricing-card__label">Job post + email</p>
+        <h2>Website + inbox</h2>
+        <p class="pricing-card__description">Add a dedicated send to reach creative strategists where they already pay attention.</p>
+      </div>
+      <div>
+        <p class="pricing-card__price"><span>$750</span> one time</p>
+        <ul class="pricing-card__features">
+          <li>Everything in Website</li>
+          <li>One dedicated email to our list</li>
+          <li>Role-focused email creative</li>
+        </ul>
+        <a class="button button--dark button--pricing" href="{{ site.post_job_checkout.email }}">Choose website + email</a>
+      </div>
+    </article>
+
+    <article class="pricing-card">
+      <div>
+        <p class="pricing-card__label">Featured campaign</p>
+        <h2>Maximum reach</h2>
+        <p class="pricing-card__description">A higher-frequency campaign for priority roles and teams that want sustained visibility.</p>
+      </div>
+      <div>
+        <p class="pricing-card__price"><span>$1,500</span> one time</p>
+        <ul class="pricing-card__features">
+          <li>Everything in Website</li>
+          <li>Featured home page placement</li>
+          <li>Three dedicated emails to our list</li>
+        </ul>
+        <a class="button button--pricing" href="{{ site.post_job_checkout.featured }}">Choose maximum reach</a>
+      </div>
+    </article>
+  </div>
+
+  <section class="post-job-footer" aria-labelledby="what-happens-next">
+    <div>
+      <p class="post-job-eyebrow">Simple from here</p>
+      <h2 id="what-happens-next">What happens next?</h2>
+    </div>
+    <ol>
+      <li><span>1</span><div><strong>Choose your package</strong><p>Select the reach that works for your role.</p></div></li>
+      <li><span>2</span><div><strong>Send us the details</strong><p>We’ll collect your job description, application link, and brand assets.</p></div></li>
+      <li><span>3</span><div><strong>Go live</strong><p>We’ll review the listing and coordinate your launch.</p></div></li>
+    </ol>
+  </section>
+
+  <p class="post-job-contact">Have a question or need a custom hiring campaign? <a href="mailto:{{ site.email }}">Email us</a>.</p>
+</section>
