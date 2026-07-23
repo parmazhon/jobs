@@ -1,6 +1,7 @@
 ---
 title: Director, Performance Creative
 brand: ridge
+role_type: Creative Strategy
 location: United States
 workplace: Remote
 employment_type: Full-time

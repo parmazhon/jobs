@@ -1,0 +1,40 @@
+<article
+  class="job-card"
+  {% if filterableJobs %}
+    data-job-card
+    data-role="{{ job.data.role_type | escape }}"
+    data-location="{{ job.data.location | escape }}"
+    data-workplace="{{ job.data.workplace | escape }}"
+    data-employment="{{ job.data.employment_type | escape }}"
+  {% endif %}
+>
+  <div class="job-content">
+    <div class="job-overview">
+      <h3><a href="{{ job.url }}">{{ job.data.title }}</a></h3>
+      <ul class="job-facts" aria-label="Job details">
+        {% if job.data.role_type %}<li><img class="fact-icon" src="/assets/icons/tag.svg" alt="" eleventy:ignore>{{ job.data.role_type }}</li>{% endif %}
+        {% if job.data.location %}<li><img class="fact-icon" src="/assets/icons/map-pin.svg" alt="" eleventy:ignore>{{ job.data.location }}</li>{% endif %}
+        {% if job.data.workplace %}<li><img class="fact-icon" src="/assets/icons/monitor.svg" alt="" eleventy:ignore>{{ job.data.workplace }}</li>{% endif %}
+        {% if job.data.employment_type %}<li><img class="fact-icon" src="/assets/icons/briefcase.svg" alt="" eleventy:ignore>{{ job.data.employment_type }}</li>{% endif %}
+        {% if job.data.salary %}<li><img class="fact-icon" src="/assets/icons/dollar-sign.svg" alt="" eleventy:ignore>{{ job.data.salary }}</li>{% endif %}
+      </ul>
+    </div>
+    <div class="company-row">
+      {% if brand %}
+        <a class="company-mark" href="{{ brand.url }}" aria-label="View {{ brand.data.name }}" style="--avatar-bg: {{ brand.data.avatar_background or '#ffffff' }}">
+          {% set avatarLogo = brand.data.avatar_logo or brand.data.logo %}
+          {% if avatarLogo %}<img src="{{ avatarLogo }}" alt="" eleventy:widths="96,192" eleventy:formats="svg,webp" sizes="96px">{% else %}<span class="company-monogram" aria-hidden="true">{{ brand.data.name | first }}</span>{% endif %}
+        </a>
+      {% else %}
+        <span class="company-mark" aria-hidden="true"></span>
+      {% endif %}
+      <div>
+        <p class="company">
+          {% if brand %}<a href="{{ brand.url }}">{{ brand.data.name }}</a>{% else %}Brand{% endif %}
+        </p>
+        <p class="company-detail">{% if brand and brand.data.description %}{{ brand.data.description }}{% else %}Creative company in {{ job.data.location }}{% endif %}</p>
+      </div>
+    </div>
+  </div>
+  <a class="learn-more" href="{{ job.url }}">Learn more <img src="/assets/icons/arrow-right.svg" alt="" eleventy:ignore></a>
+</article>

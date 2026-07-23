@@ -1,6 +1,7 @@
 ---
 title: Content Creator (Contractor)
 brand: glossier
+role_type: Content Creation
 location: New York, NY
 workplace: Hybrid
 employment_type: Contract

@@ -27,6 +27,7 @@ Use this frontmatter shape:
 ---
 title: Senior Creative Strategist
 brand: example-brand
+role_type: Creative Strategy
 location: Remote, US
 workplace: Remote
 employment_type: Full-time
@@ -45,6 +46,8 @@ match_keywords:
   - creative strategist
 ---
 ```
+
+Classify `role_type` by the role's primary discipline using exactly one of: `Creative Strategy`, `Content Creation`, `Video & Editing`, `Design`, `Copywriting`, `Production`, or `Other`.
 
 Use the employer's wording for facts. Omit optional facts that the source does not provide; never infer salary, workplace, location, employment type, qualifications, or responsibilities. Set `posted` to the source's posting date when available, otherwise the discovery date. Write a concise, neutral summary and preserve important responsibilities and qualifications in the body.
 

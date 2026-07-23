@@ -8,6 +8,15 @@ const root = process.cwd();
 const brandDir = path.join(root, "src", "brands");
 const publishedDir = path.join(root, "src", "jobs");
 const draftDir = path.join(root, "src", "job-drafts");
+const roleTypes = new Set([
+  "Creative Strategy",
+  "Content Creation",
+  "Video & Editing",
+  "Design",
+  "Copywriting",
+  "Production",
+  "Other"
+]);
 
 function filesIn(dir) {
   if (!fs.existsSync(dir)) return [];
@@ -107,7 +116,7 @@ function validate() {
   const brandSlugs = new Set(brands.map((brand) => brand.slug));
   const drafts = jobs.filter((job) => job.kind === "draft");
   const errors = [];
-  const required = ["title", "brand", "location", "apply_url", "posted", "source_url", "discovered_at", "review_status"];
+  const required = ["title", "brand", "role_type", "location", "apply_url", "posted", "source_url", "discovered_at", "review_status"];
 
   for (const draft of drafts) {
     for (const field of required) {
@@ -115,6 +124,7 @@ function validate() {
     }
     if (draft.draft !== true) errors.push(`${draft.file}: draft must be true`);
     if (draft.brand && !brandSlugs.has(String(draft.brand))) errors.push(`${draft.file}: unknown brand ${draft.brand}`);
+    if (draft.role_type && !roleTypes.has(String(draft.role_type))) errors.push(`${draft.file}: unknown role_type ${draft.role_type}`);
     for (const field of ["apply_url", "source_url"]) {
       if (draft[field]) {
         try { new URL(String(draft[field])); } catch { errors.push(`${draft.file}: invalid ${field}`); }

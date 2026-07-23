@@ -1,6 +1,7 @@
 ---
 title: Director, Creative Strategy (Paid)
 brand: darkroom
+role_type: Creative Strategy
 location: New York, Florida, New Jersey, or Texas
 workplace: Remote
 employment_type: Full-time

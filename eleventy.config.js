@@ -54,6 +54,18 @@ export default function (eleventyConfig) {
     )
   );
 
+  eleventyConfig.addFilter("jobFieldValues", (jobs, field) =>
+    [...new Set(
+      (jobs || [])
+        .map((job) => job.data[field])
+        .filter(Boolean)
+    )].sort((a, b) => String(a).localeCompare(String(b)))
+  );
+
+  eleventyConfig.addFilter("featuredJobs", (jobs) =>
+    (jobs || []).filter((job) => job.data.featured)
+  );
+
   eleventyConfig.addFilter("guideBySlug", (guides, slug) =>
     (guides || []).find((guide) => guide.fileSlug === slug)
   );

@@ -3,7 +3,7 @@ layout: layouts/base.njk
 ---
 <article class="job-detail">
   {% set brandRecord = collections.brands | brandBySlug(brand) %}
-  <a class="back-link" href="/#jobs">← All jobs</a>
+  <a class="back-link" href="/jobs/">← All jobs</a>
   <header class="job-detail-header">
     {% if brandRecord %}
       <a class="job-brand" href="{{ brandRecord.url }}">
@@ -14,6 +14,7 @@ layout: layouts/base.njk
     {% endif %}
     <h1>{{ title }}</h1>
     <ul class="job-detail-facts" aria-label="Job details">
+      {% if role_type %}<li><img class="fact-icon" src="/assets/icons/tag.svg" alt="" eleventy:ignore><span>{{ role_type }}</span></li>{% endif %}
       {% if location %}<li><img class="fact-icon" src="/assets/icons/map-pin.svg" alt="" eleventy:ignore><span>{{ location }}</span></li>{% endif %}
       {% if workplace %}<li><img class="fact-icon" src="/assets/icons/monitor.svg" alt="" eleventy:ignore><span>{{ workplace }}</span></li>{% endif %}
       {% if employment_type %}<li><img class="fact-icon" src="/assets/icons/briefcase.svg" alt="" eleventy:ignore><span>{{ employment_type }}</span></li>{% endif %}

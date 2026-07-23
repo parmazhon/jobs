@@ -69,7 +69,7 @@ content:
     type: collection
     path: src/jobs
     view:
-      fields: [title, brand, location, employment_type, posted, draft]
+      fields: [title, brand, role_type, location, employment_type, posted, draft]
       primary: title
       sort: [posted, title]
       default:
@@ -85,6 +85,13 @@ content:
           collection: brands
           value: "{filename}"
           label: "{name}"
+      - name: role_type
+        label: Role category
+        type: select
+        required: true
+        description: Choose the role's primary creative discipline. This powers the public job filter.
+        options:
+          values: [Creative Strategy, Content Creation, Video & Editing, Design, Copywriting, Production, Other]
       - { name: location, label: Location, type: string, required: true }
       - name: workplace
         label: Workplace
@@ -99,7 +106,7 @@ content:
       - { name: salary, label: Salary, type: string }
       - { name: apply_url, label: Application URL, type: string, required: true }
       - { name: posted, label: Posted, type: date, required: true }
-      - { name: featured, label: Featured, type: boolean, default: false }
+      - { name: featured, label: Featured on homepage, type: boolean, default: false }
       - { name: draft, label: Draft, type: boolean, default: false }
       - { name: source_url, label: Source URL, type: string }
       - { name: source_job_id, label: Source job ID, type: string }
@@ -114,7 +121,7 @@ content:
     path: src/job-drafts
     exclude: [.gitkeep]
     view:
-      fields: [title, brand, location, discovered_at, review_status]
+      fields: [title, brand, role_type, location, discovered_at, review_status]
       primary: title
       sort: [discovered_at, title, brand]
       default:
@@ -132,6 +139,13 @@ content:
           collection: brands
           value: "{filename}"
           label: "{name}"
+      - name: role_type
+        label: Role category
+        type: select
+        required: true
+        description: Choose the role's primary creative discipline. This powers the public job filter after approval.
+        options:
+          values: [Creative Strategy, Content Creation, Video & Editing, Design, Copywriting, Production, Other]
       - { name: location, label: Location, type: string, required: true }
       - name: workplace
         label: Workplace
@@ -146,7 +160,7 @@ content:
       - { name: salary, label: Salary, type: string }
       - { name: apply_url, label: Application URL, type: string, required: true }
       - { name: posted, label: Posted, type: date, required: true }
-      - { name: featured, label: Featured, type: boolean, default: false }
+      - { name: featured, label: Featured on homepage, type: boolean, default: false }
       - { name: draft, label: Draft, type: boolean, default: true, readonly: true }
       - name: review_status
         label: Review status

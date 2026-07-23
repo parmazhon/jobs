@@ -1,6 +1,7 @@
 ---
 title: Creative Strategist
 brand: true-classic
+role_type: Creative Strategy
 location: Calabasas, CA
 workplace: Hybrid
 salary: Competitive salary + bonus

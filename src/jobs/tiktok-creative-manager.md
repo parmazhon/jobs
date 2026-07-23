@@ -1,6 +1,7 @@
 ---
 title: TikTok Creative Manager
 brand: dr-squatch
+role_type: Content Creation
 location: Marina del Rey, CA
 workplace: Hybrid
 employment_type: Full-time

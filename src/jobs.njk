@@ -1,0 +1,127 @@
+---
+layout: layouts/base.njk
+title: Browse Creative Jobs
+description: Search current creative strategy, content creation, editing, design, copywriting, and production jobs by role, location, workplace, and employment type.
+---
+<section class="jobs-page" aria-labelledby="jobs-page-title">
+  <header class="jobs-page__header">
+    <p class="jobs-page__eyebrow">Creative job board</p>
+    <h1 id="jobs-page-title">Find your next creative role</h1>
+    <p>Search current openings from standout brands and agencies by role, location, workplace, and employment type.</p>
+  </header>
+
+  <div class="section-heading">
+    <h2>Open positions</h2>
+  </div>
+
+  <div class="job-filter-tools" data-job-filter-tools hidden>
+    <section class="quick-filters" aria-labelledby="quick-filters-title">
+      <div class="quick-filters__header">
+        <h3 id="quick-filters-title">Quick filters</h3>
+        <p>Tap a category to narrow the list instantly.</p>
+      </div>
+
+      <div class="quick-filter-groups">
+        <div class="quick-filter-group">
+          <p id="quick-role-label">Role</p>
+          <div class="quick-filter-tray" role="group" aria-labelledby="quick-role-label">
+            <button type="button" data-quick-filter="role" data-filter-value="" aria-pressed="true">All</button>
+            {% for value in collections.jobs | jobFieldValues("role_type") %}
+              <button type="button" data-quick-filter="role" data-filter-value="{{ value | escape }}" aria-pressed="false">{{ value }}</button>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="quick-filter-group">
+          <p id="quick-workplace-label">Workplace</p>
+          <div class="quick-filter-tray" role="group" aria-labelledby="quick-workplace-label">
+            <button type="button" data-quick-filter="workplace" data-filter-value="" aria-pressed="true">Any</button>
+            {% for value in collections.jobs | jobFieldValues("workplace") %}
+              <button type="button" data-quick-filter="workplace" data-filter-value="{{ value | escape }}" aria-pressed="false">{{ value }}</button>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <details class="job-advanced-search" data-advanced-search>
+      <summary>
+        <span class="job-advanced-search__label">
+          <img src="/assets/icons/filter.svg" alt="" eleventy:ignore>
+          Advanced search
+        </span>
+        <span class="job-advanced-search__count" data-advanced-count hidden></span>
+      </summary>
+
+      <form class="job-filters" data-job-filters hidden>
+        <div class="job-filter-grid">
+          <label class="job-filter job-filter--wide">
+            <span>Search jobs</span>
+            <input type="search" name="q" placeholder="Title, skill, or company" autocomplete="off">
+          </label>
+
+          <label class="job-filter">
+            <span>Role</span>
+            <select name="role">
+              <option value="">All roles</option>
+              {% for value in collections.jobs | jobFieldValues("role_type") %}
+                <option value="{{ value | escape }}">{{ value }}</option>
+              {% endfor %}
+            </select>
+          </label>
+
+          <label class="job-filter">
+            <span>Location</span>
+            <input type="search" name="location" placeholder="City, state, or country" autocomplete="address-level2">
+          </label>
+
+          <label class="job-filter">
+            <span>Workplace</span>
+            <select name="workplace">
+              <option value="">Any workplace</option>
+              {% for value in collections.jobs | jobFieldValues("workplace") %}
+                <option value="{{ value | escape }}">{{ value }}</option>
+              {% endfor %}
+            </select>
+          </label>
+
+          <label class="job-filter">
+            <span>Employment</span>
+            <select name="employment">
+              <option value="">Any employment</option>
+              {% for value in collections.jobs | jobFieldValues("employment_type") %}
+                <option value="{{ value | escape }}">{{ value }}</option>
+              {% endfor %}
+            </select>
+          </label>
+        </div>
+      </form>
+    </details>
+  </div>
+
+  <div class="job-results-toolbar">
+    <p class="job-results-status" aria-live="polite">
+      <strong data-job-count>{{ collections.jobs.length }}</strong>
+      <span data-job-count-label>{% if collections.jobs.length == 1 %}open job{% else %}open jobs{% endif %}</span>
+    </p>
+    <button class="job-filters-clear" type="button" data-clear-filters hidden>Clear filters</button>
+  </div>
+
+  <div class="job-list" data-job-list>
+    {% set filterableJobs = true %}
+    {% for job in collections.jobs %}
+      {% set brand = collections.brands | brandBySlug(job.data.brand) %}
+      {% include "components/job-card.njk" %}
+    {% else %}
+      <p>No roles have been published yet.</p>
+    {% endfor %}
+  </div>
+
+  <div class="job-empty-state" data-job-empty hidden>
+    <h3>No jobs match those filters</h3>
+    <p>Try a broader location, another role, or clear the filters to see every opening.</p>
+    <button type="button" data-clear-filters>Clear all filters</button>
+  </div>
+</section>
+
+<script src="/assets/js/job-filters.js" defer></script>
