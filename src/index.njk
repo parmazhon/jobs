@@ -29,6 +29,21 @@ intro: Discover the best jobs from the best agencies and brands in DTC, Ecommerc
   </section>
 {% endif %}
 
+<section class="newsletter" aria-labelledby="newsletter-title">
+  <div class="newsletter__copy">
+    <h2 id="newsletter-title">Be the first to know about new jobs</h2>
+    <p>Get new job openings delivered to your inbox each week.</p>
+  </div>
+  <form class="newsletter__form" action="{{ site.newsletter.form_action }}" method="post">
+    <label class="visually-hidden" for="newsletter-email">Email address</label>
+    <input id="newsletter-email" name="fields[email]" type="email" autocomplete="email" placeholder="Email address" required>
+    <button type="submit">
+      Sign up for updates
+      <img src="/assets/icons/arrow-right.svg" alt="" eleventy:ignore>
+    </button>
+  </form>
+</section>
+
 <section class="jobs" id="jobs" aria-labelledby="jobs-title">
   <div class="section-heading">
     <h2 id="jobs-title">Open positions</h2>

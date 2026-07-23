@@ -41,6 +41,20 @@
     </header>
     <main id="main">{{ content | safe }}</main>
     <footer class="site-footer">
+      <section class="site-footer__newsletter" aria-labelledby="footer-newsletter-title">
+        <div>
+          <h2 id="footer-newsletter-title">Fresh creative jobs, weekly.</h2>
+          <p>New roles from standout brands and agencies, sent to your inbox.</p>
+        </div>
+        <form class="footer-newsletter-form" action="{{ site.newsletter.form_action }}" method="post">
+          <label class="visually-hidden" for="footer-newsletter-email">Email address</label>
+          <input id="footer-newsletter-email" name="fields[email]" type="email" autocomplete="email" placeholder="Email address" required>
+          <button type="submit" aria-label="Sign up for job updates">
+            Sign up
+            <img src="/assets/icons/arrow-right.svg" alt="" eleventy:ignore>
+          </button>
+        </form>
+      </section>
       <div class="site-footer__inner">
         <div>
           <a class="site-name" href="/">{{ site.name }}</a>
