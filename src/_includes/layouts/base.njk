@@ -1,21 +1,59 @@
 <!doctype html>
 <html lang="en">
   <head>
+    {% set pageTitle = seo_title or title or name %}
+    {% set pageDescription = description or site.description %}
+    {% set canonicalUrl = site.url + page.url %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ description or site.description }}">
-    <title>{{ title or name }} · {{ site.name }}</title>
+    <meta name="description" content="{{ pageDescription }}">
+    <title>{% if seo_title %}{{ seo_title }}{% else %}{{ pageTitle }}{% if pageTitle != site.name %} · {{ site.name }}{% endif %}{% endif %}</title>
+    <link rel="canonical" href="{{ canonicalUrl }}">
+    <meta property="og:type" content="{% if is_article %}article{% else %}website{% endif %}">
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:title" content="{{ pageTitle }}">
+    <meta property="og:description" content="{{ pageDescription }}">
+    <meta property="og:url" content="{{ canonicalUrl }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ pageTitle }}">
+    <meta name="twitter:description" content="{{ pageDescription }}">
+    {% if noindex %}<meta name="robots" content="noindex,follow">{% endif %}
     <link rel="stylesheet" href="/assets/css/main.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": {{ site.name | jsonString | safe }},
+        "url": {{ site.url | jsonString | safe }},
+        "description": {{ site.description | jsonString | safe }}
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="site-name" href="/">{{ site.name }}</a>
       <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/guides/">Career guides</a>
         <a href="/brands/">Browse brands</a>
         <a class="button button--dark button--small" href="mailto:{{ site.email }}">Post a job</a>
       </nav>
     </header>
     <main id="main">{{ content | safe }}</main>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div>
+          <a class="site-name" href="/">{{ site.name }}</a>
+          <p>Creative strategy opportunities and practical career resources.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href="/#jobs">Browse jobs</a>
+          <a href="/jobs/remote-creative-strategist-jobs/">Remote jobs</a>
+          <a href="/guides/">Career guides</a>
+          <a href="/brands/">Browse brands</a>
+          <a href="/guides/how-to-hire-a-creative-strategist/">Hiring guide</a>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>

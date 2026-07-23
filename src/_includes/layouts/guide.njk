@@ -1,0 +1,147 @@
+---
+layout: layouts/base.njk
+---
+<article class="guide-detail">
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a><span aria-hidden="true">/</span><a href="/guides/">Guides</a><span aria-hidden="true">/</span><span aria-current="page">{{ short_title or title }}</span>
+  </nav>
+
+  <header class="guide-header">
+    <p class="guide-eyebrow">{{ eyebrow or "Creative strategy guide" }}</p>
+    <h1>{{ title }}</h1>
+    <p class="guide-summary">{{ summary }}</p>
+    {% if updated %}<p class="guide-updated">Updated {{ updated | readableDate }} <span aria-hidden="true">·</span> {{ reading_time or "8 min read" }}</p>{% endif %}
+  </header>
+
+  <div class="guide-layout">
+    {% if sections %}
+      <aside class="guide-toc" aria-label="On this page">
+        <p>On this page</p>
+        <ol>
+          {% for section in sections %}<li><a href="#{{ section.id }}">{{ section.label }}</a></li>{% endfor %}
+        </ol>
+      </aside>
+    {% endif %}
+
+    <div class="guide-body">
+      {% if show_remote_jobs %}
+        {% set remoteJobs = collections.jobs | jobsByWorkplace("remote") %}
+        <section class="guide-job-results" aria-labelledby="current-remote-jobs">
+          <div class="guide-section-heading">
+            <div>
+              <p class="guide-kicker">Updated from our job board</p>
+              <h2 id="current-remote-jobs">Current remote creative strategy jobs</h2>
+            </div>
+            <span class="result-count">{{ remoteJobs | length }} open</span>
+          </div>
+          <div class="job-list">
+            {% for job in remoteJobs %}
+              {% set brand = collections.brands | brandBySlug(job.data.brand) %}
+              <article class="job-card">
+                <div class="job-content">
+                  <h3><a href="{{ job.url }}">{{ job.data.title }}</a></h3>
+                  <ul class="job-facts" aria-label="Job details">
+                    {% if brand %}<li>{{ brand.data.name }}</li>{% endif %}
+                    {% if job.data.location %}<li><img class="fact-icon" src="/assets/icons/map-pin.svg" alt="" eleventy:ignore>{{ job.data.location }}</li>{% endif %}
+                    {% if job.data.salary %}<li><img class="fact-icon" src="/assets/icons/dollar-sign.svg" alt="" eleventy:ignore>{{ job.data.salary }}</li>{% endif %}
+                  </ul>
+                </div>
+                <a class="learn-more" href="{{ job.url }}">View role <span aria-hidden="true">→</span></a>
+              </article>
+            {% else %}
+              <div class="empty-state">
+                <h3>No remote roles are open today</h3>
+                <p>Check back soon. We review creative strategy openings regularly.</p>
+                <a href="/#jobs">Browse all current jobs</a>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+
+      <div class="prose guide-prose">{{ content | safe }}</div>
+
+      {% if faqs %}
+        <section class="guide-faq" aria-labelledby="faq-heading">
+          <p class="guide-kicker">Quick answers</p>
+          <h2 id="faq-heading">Frequently asked questions</h2>
+          <div class="faq-list">
+            {% for faq in faqs %}
+              <details>
+                <summary>{{ faq.question }}</summary>
+                <p>{{ faq.answer }}</p>
+              </details>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+
+      <aside class="guide-cta">
+        <p class="guide-kicker">{{ cta_kicker or "Find your next role" }}</p>
+        <h2>{{ cta_title or "Put this guide into practice" }}</h2>
+        <p>{{ cta_text or "Explore current creative strategy opportunities at growing brands and agencies." }}</p>
+        <a class="button button--dark" href="{{ cta_url or "/#jobs" }}">{{ cta_label or "Browse jobs" }}</a>
+      </aside>
+    </div>
+  </div>
+
+  {% if related %}
+    <section class="related-guides" aria-labelledby="related-guides-title">
+      <p class="guide-kicker">Keep learning</p>
+      <h2 id="related-guides-title">Related guides</h2>
+      <div class="guide-card-grid guide-card-grid--three">
+        {% for relatedSlug in related %}
+          {% set relatedGuide = collections.guides | guideBySlug(relatedSlug) %}
+          {% if relatedGuide %}
+            <a class="guide-card" href="{{ relatedGuide.url }}">
+              <span class="guide-card__eyebrow">{{ relatedGuide.data.card_label or "Guide" }}</span>
+              <h3>{{ relatedGuide.data.short_title or relatedGuide.data.title }}</h3>
+              <p>{{ relatedGuide.data.description }}</p>
+              <span class="guide-card__link">Read guide <span aria-hidden="true">→</span></span>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+</article>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": {{ title | jsonString | safe }},
+    "description": {{ description | jsonString | safe }},
+    "datePublished": {{ published | jsonString | safe }},
+    "dateModified": {{ updated | jsonString | safe }},
+    "mainEntityOfPage": {{ (site.url + page.url) | jsonString | safe }},
+    "author": {"@type": "Organization", "name": {{ site.name | jsonString | safe }}},
+    "publisher": {"@type": "Organization", "name": {{ site.name | jsonString | safe }}}
+  }
+</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": {{ site.url | jsonString | safe }}},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": {{ (site.url + "/guides/") | jsonString | safe }}},
+      {"@type": "ListItem", "position": 3, "name": {{ title | jsonString | safe }}, "item": {{ (site.url + page.url) | jsonString | safe }}}
+    ]
+  }
+</script>
+{% if faqs %}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for faq in faqs %}{
+        "@type": "Question",
+        "name": {{ faq.question | jsonString | safe }},
+        "acceptedAnswer": {"@type": "Answer", "text": {{ faq.answer | jsonString | safe }}}
+      }{% if not loop.last %},{% endif %}{% endfor %}
+    ]
+  }
+</script>
+{% endif %}

@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+title: Creative Strategist Career Guides
+seo_title: Creative Strategist Career Guides, Salaries & Hiring
+description: Practical creative strategist guides covering the role, salaries, portfolios, interviews, career paths, remote jobs, and hiring.
+permalink: /guides/index.html
+---
+<section class="guide-directory">
+  <header class="directory-header">
+    <p class="directory-eyebrow">Creative strategy resources</p>
+    <h1>Build a career in creative strategy</h1>
+    <p>Plain-English guides for getting hired, growing your craft, and building a high-performing creative team.</p>
+  </header>
+
+  <div class="guide-card-grid">
+    {% for guide in collections.guides %}
+      <a class="guide-card" href="{{ guide.url }}">
+        <span class="guide-card__eyebrow">{{ guide.data.card_label or "Guide" }}</span>
+        <h2>{{ guide.data.short_title or guide.data.title }}</h2>
+        <p>{{ guide.data.description }}</p>
+        <span class="guide-card__link">Read guide <span aria-hidden="true">→</span></span>
+      </a>
+    {% endfor %}
+  </div>
+</section>

@@ -30,6 +30,12 @@ export default function (eleventyConfig) {
       .sort((a, b) => a.data.name.localeCompare(b.data.name))
   );
 
+  eleventyConfig.addCollection("guides", (collectionApi) =>
+    collectionApi
+      .getFilteredByTag("guide")
+      .sort((a, b) => (a.data.guide_order || 99) - (b.data.guide_order || 99))
+  );
+
   eleventyConfig.addFilter("brandBySlug", (brands, slug) =>
     (brands || []).find((brand) => brand.fileSlug === slug)
   );
@@ -37,6 +43,18 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("jobsByBrand", (jobs, slug) =>
     (jobs || []).filter((job) => job.data.brand === slug)
   );
+
+  eleventyConfig.addFilter("jobsByWorkplace", (jobs, workplace) =>
+    (jobs || []).filter(
+      (job) => (job.data.workplace || "").toLowerCase() === workplace.toLowerCase()
+    )
+  );
+
+  eleventyConfig.addFilter("guideBySlug", (guides, slug) =>
+    (guides || []).find((guide) => guide.fileSlug === slug)
+  );
+
+  eleventyConfig.addFilter("jsonString", (value) => JSON.stringify(value));
 
   eleventyConfig.addFilter("marqueeBrands", (brands) =>
     (brands || []).filter((brand) => brand.data.show_in_marquee && brand.data.logo)
@@ -46,7 +64,8 @@ export default function (eleventyConfig) {
     new Intl.DateTimeFormat("en-US", {
       month: "short",
       day: "numeric",
-      year: "numeric"
+      year: "numeric",
+      timeZone: "UTC"
     }).format(new Date(value))
   );
 

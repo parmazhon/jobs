@@ -1,0 +1,8 @@
+{
+  "layout": "layouts/guide.njk",
+  "tags": ["guide"],
+  "permalink": "guides/{{ page.fileSlug }}/index.html",
+  "is_article": true,
+  "published": "2026-07-22",
+  "updated": "2026-07-22"
+}
